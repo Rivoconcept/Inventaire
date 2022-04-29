@@ -1,0 +1,36 @@
+ul {
+    list-style: none;
+    
+}
+button.btn.btn-primary .enr {
+    width: 300px;
+    /* padding-top: 100px;     */
+}
+.affichage {
+    width: 100%;
+    height: 30%;
+}
+table {
+    
+    width: 100%;
+    height: 15%;
+    text-align: center;
+}
+td.entete {
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    height:30px;
+}
+
+.btnplace {
+    width: 300px;
+    
+}
+.divplace {
+    padding-top: 50px;
+}
+.logo {
+width: 10px;
+}
+

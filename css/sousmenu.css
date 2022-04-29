@@ -1,0 +1,168 @@
+#sousmenu{
+     
+        text-align: center;
+        display: none;
+        
+}
+
+#sousmenu li{
+        float: left;
+        padding: 0 0 10px 0;
+        position: relative;
+}
+
+#sousmenu a{
+        float: left;
+        height: 25px;
+        padding: 0 25px;
+        color: #999;
+        text-transform: uppercase;
+        font: bold 12px/25px Arial, Helvetica;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #000;
+}
+
+#sousmenu li:hover > a{
+        color: white;
+}
+
+*html #sousmenu li a:hover{ /* IE6 */
+        color: white;
+}
+
+#sousmenu li:hover > ul{
+        display: block;
+}
+
+/* Sous-menu */
+
+#sousmenu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* display: none; */
+    position: absolute;
+    top: 35px;
+    /* left: 0; */
+    z-index: 99999;
+    background: rgb(158, 158, 158);
+    background: -moz-linear-gradient(rgb(163, 162, 162), #263c5c);
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #263c5c),color-stop(1, #444));
+    background: -webkit-linear-gradient(rgb(141, 140, 140), #263c5c);
+    background: -o-linear-gradient(rgb(148, 148, 148), #263c5c);
+    background: -ms-linear-gradient(#444, #263c5c);
+    background: linear-gradient(rgb(143, 143, 143), #263c5c);
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 150px;
+    margin-top: 13px;
+}
+
+#sousmenu ul li{
+    float: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    -moz-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    -webkit-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+}
+
+#sousmenu ul li:last-child{
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#sousmenu ul a{
+    padding: 10px;
+    height: auto;
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+    float: none;
+    text-transform: none;
+}
+
+*html #sousmenu ul a{ /* IE6 */
+        height: 10px;
+        width: 150px;
+}
+
+*:first-child+html #sousmenu ul a{ /* IE7 */
+        height: 10px;
+        width: 150px;
+}
+
+#sousmenu ul a:hover{
+        background: #0186ba;
+        background: -moz-linear-gradient(#04acec,  #0186ba);
+        background: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+        background: -webkit-linear-gradient(#04acec,  #0186ba);
+        background: -o-linear-gradient(#04acec,  #0186ba);
+        background: -ms-linear-gradient(#04acec,  #0186ba);
+        background: linear-gradient(#04acec,  #0186ba);
+        cursor: pointer;
+}
+
+#sousmenu ul li:first-child a{
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+#sousmenu ul li:first-child a:after{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #444;
+}
+
+#sousmenu ul li:first-child a:hover:after{
+    border-bottom-color: #04acec;
+}
+
+#sousmenu ul li:last-child a{
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* Rétablissement du flottement */
+#sousmenu:after{
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+}
+
+* html #sousmenu             { zoom: 1; } /* IE6 */
+*:first-child+html #sousmenu { zoom: 1; } /* IE7 */
+/**************************************************************************************************************************************/
+#sousmenu ul li:first-child a:after{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid rgb(153, 152, 152);
+}
+
+#sousmenu ul li:first-child a:hover:after{
+    border-bottom-color: #04acec;
+}
+
+
+
+* html #sousmenu             { zoom: 1; } /* IE6 */
+*:first-child+html #sousmenu { zoom: 1; } /* IE7 */
