@@ -115,11 +115,11 @@ $(function(){
                                 
                                 
                             },
-                            success: function () {
+                            success: function (i) {
                                 
                             
                             
-                            
+                            alert(i);
                             },
                         });
             } else {

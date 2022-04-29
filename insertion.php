@@ -48,27 +48,32 @@ if($param == "insertionbdd") {
    $cibles = explode(',', $cible);
    $egaux1 = explode(',', $egal1);
    $egaux2 = explode(',', $egal2);
-
    
-   $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cibles[0]) VALUES ($egaux2[0])");
-   $insert1->execute(array(
-      $egaux1[0] => $colonnevalue[0]
-   ));
-   $idrecup = [];
-   $recupid = $base->prepare("SELECT MAX(id) FROM $table");
-   $recupid->execute();
-   $idrecup = $recupid->fetch();
-
-   print_r($idrecup);
-   
-   for ($i = 1; $i < count($colnom)-1; $i++) {
-   $insert2 = $base->prepare("UPDATE `$table` SET $cibles[$i] = $egaux2[$i] WHERE `$table`.`id` = :id");
-   $insert2->execute(array(
-        "id"=>strval($idrecup[0]),
-        $egaux1[$i]=>strval($colonnevalue[$i])
-
+ 
+      // $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cibles[0]) VALUES ($egaux2[0])");
+      // $insert1->execute(array(
+      //    $egaux1[0] => $colonnevalue[0]
+      // ));
+      $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table (`valeur1`) VALUES (`:veleur1`)");
+      $insert1->execute(array(
+         "veleur1" => "valeur1"
       ));
-   }
+      print_r($insert1);
+
+   // $idrecup = [];
+   // $recupid = $base->prepare("SELECT MAX(id) FROM $table");
+   // $recupid->execute();
+   // $idrecup = $recupid->fetch();
+
+   
+   // for ($i = 0; $i < count($colnom)-1; $i++) {
+   // $insert2 = $base->prepare("UPDATE `$table` SET $cibles[$i] = $egaux2[$i] WHERE `$table`.`id` = :id");
+   // $insert2->execute(array(
+   //      "id"=>strval($idrecup[0]),
+   //      $egaux1[$i]=>strval($colonnevalue[$i])
+
+   //    ));
+   // }
   
 }
 
