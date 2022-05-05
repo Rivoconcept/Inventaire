@@ -27,7 +27,9 @@ if($param == "insertionbdd") {
    $value = ""; 
    $egal1 = ""; 
    $egal2 = ""; 
-   $cibles = ""; 
+   $cibles = [];
+   $tabl = "";  
+   $table = [];
    $values = ""; 
    $egaux1 = ""; 
    $egaux2 = "";
@@ -45,25 +47,33 @@ if($param == "insertionbdd") {
    $egal2 = substr($Res3, 0, -1);
    
    $colonnevalue = explode('akonndro', $posts);
-   $cibles = explode(',', $cible);
    $egaux1 = explode(',', $egal1);
-   $egaux2 = explode(',', $egal2);
    
    
-   echo($cible);
+      foreach($egaux1 as $key => $val){
+            $i=0;
+            $table = array_merge([$key=>$val], [$tabl[$i] => $colonnevalue[$i]]);
+            $i++;
+
+            
+            
+
+      }
+
+   // $cibles = explode(',', substr($result, 0, -1));
   
    
-   //  $insert1 = $base->prepare("INSERT INTO inventaire_karlit.ecran ($cibles) VALUES (:valeur1, :valeur2, :valeur3, :valeur4, :valeur5, :valeur6, :valeur7, :valeur8)");
-   // $insert1->execute(array(
-   //    $egaux1[0] => $colonnevalue[0],
-   //    $egaux1[1] =>  $colonnevalue[1],
-   //    $egaux1[2] =>  $colonnevalue[2],
-   //    $egaux1[3] =>  $colonnevalue[3],
-   //    $egaux1[4] =>  $colonnevalue[4],
-   //    $egaux1[5] =>  $colonnevalue[5],
-   //    $egaux1[6] =>  $colonnevalue[6],
-   //    $egaux1[7] =>  $colonnevalue[7]
-   //  ));
+   print_r($table);
+  
+   
+   //  $insert1 = $base->prepare("INSERT INTO inventaire_karlit.ecran ($cible) VALUES ($egal2)");
+   // $insert1->execute(
+   //    $table
+   //  );
+
+ 
+
+
    // $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cibles[0]) VALUES ($egaux2[0])");
       // $insert1->execute(array(
       //    $egaux1[0] => $colonnevalue[0]

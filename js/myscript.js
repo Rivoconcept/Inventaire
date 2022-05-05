@@ -106,6 +106,7 @@ $(function(){
                     var value = '"'+values+'"'; 
                         $.ajax({
                             type: "POST",
+                            datatype : "json",
                             url: "insertion.php",
                             data: 
                             {
