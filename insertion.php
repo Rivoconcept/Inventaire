@@ -10,7 +10,7 @@ if($param == "insertionbdd") {
    $post = $_POST["colonnevalues"];
    $table = $_POST["tablename"];
    
-   $colname = $base->prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table'");
+   $colname = $base->prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$table' ORDER BY ORDINAL_POSITION");
    $colname->execute();
    $colnom = $colname->fetchAll();
 
@@ -49,28 +49,40 @@ if($param == "insertionbdd") {
    $egaux1 = explode(',', $egal1);
    $egaux2 = explode(',', $egal2);
    
-   print_r($Res1);
+   
+   echo($cible);
   
- 
-      $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cibles[0]) VALUES ($egaux2[0])");
-      $insert1->execute(array(
-         $egaux1[0] => $colonnevalue[0]
-      ));
+   
+   //  $insert1 = $base->prepare("INSERT INTO inventaire_karlit.ecran ($cibles) VALUES (:valeur1, :valeur2, :valeur3, :valeur4, :valeur5, :valeur6, :valeur7, :valeur8)");
+   // $insert1->execute(array(
+   //    $egaux1[0] => $colonnevalue[0],
+   //    $egaux1[1] =>  $colonnevalue[1],
+   //    $egaux1[2] =>  $colonnevalue[2],
+   //    $egaux1[3] =>  $colonnevalue[3],
+   //    $egaux1[4] =>  $colonnevalue[4],
+   //    $egaux1[5] =>  $colonnevalue[5],
+   //    $egaux1[6] =>  $colonnevalue[6],
+   //    $egaux1[7] =>  $colonnevalue[7]
+   //  ));
+   // $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cibles[0]) VALUES ($egaux2[0])");
+      // $insert1->execute(array(
+      //    $egaux1[0] => $colonnevalue[0]
+      // ));
      
-   $idrecup = [];
-   $recupid = $base->prepare("SELECT MAX(id) FROM $table");
-   $recupid->execute();
-   $idrecup = $recupid->fetch();
+   // $idrecup = [];
+   // $recupid = $base->prepare("SELECT MAX(id) FROM $table");
+   // $recupid->execute();
+   // $idrecup = $recupid->fetch();
 
    
-   for ($i = 0; $i < count($colnom)-1; $i++) {
-   $insert2 = $base->prepare("UPDATE `$table` SET $cibles[$i] = $egaux2[$i] WHERE `$table`.`id` = :id");
-   $insert2->execute(array(
-        "id"=>strval($idrecup[0]),
-        $egaux1[$i]=>strval($colonnevalue[$i])
+   // for ($i = 0; $i < count($colnom)-1; $i++) {
+   // $insert2 = $base->prepare("UPDATE $table SET $cibles[$i] = $egaux2[$i] WHERE $table.id = :id");
+   // $insert2->execute(array(
+   //      "id"=>strval($idrecup[0]),
+   //      $egaux1[$i]=>strval($colonnevalue[$i])
 
-      ));
-   }
+   //    ));
+   // }
   
 }
 
@@ -85,7 +97,7 @@ if($param == "selectpardefaut"){
          $table = $_POST["menushow"];
          $tables = strtolower(str_replace(" ", "",$table));
 
-         $colname = $base->prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$tables'");
+         $colname = $base->prepare("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'$tables' ORDER BY ORDINAL_POSITION");
          $colname->execute();
          $colnom = $colname->fetchAll();
          
@@ -120,7 +132,7 @@ if($param == "selectpardefaut"){
          
 
 
-         $ins = $base->prepare("SELECT * FROM `inventaire_karlit`.`$tables` ORDER BY ID DESC");
+         $ins = $base->prepare("SELECT * FROM inventaire_karlit.$tables ORDER BY ID DESC");
          $ins->execute();
 
 
