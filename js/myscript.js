@@ -120,7 +120,7 @@ $(function(){
                                 
                             
                             
-                            console.log(i);
+                            
                             },
                         });
             } else {
@@ -417,7 +417,8 @@ $(function(){
                     
                     
                 },
-                success: function () {
+                success: function (i) {
+                    console.log(i);
                     $("button.btn.btn-primary.btnplace").removeAttr("id");
                     $("button.btn.btn-primary.btnplace").attr("id", "btnlaptopvalider");
                     $("button.btn.btn-primary.btnplace").html("E N R E G I S T R E R");

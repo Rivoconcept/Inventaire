@@ -33,8 +33,8 @@ if($param == "insertionbdd") {
    $egaux1 = explode(',', $egal1);
 
    $tabl = array_combine($egaux1, $colonnevalue);
- 
-   $insert1 = $base->prepare("INSERT INTO inventaire_karlit.ecran ($cible) VALUES ($egal2)");
+
+   $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cible) VALUES ($egal2)");
    $insert1->execute($tabl);
 }
 
