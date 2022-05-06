@@ -14,25 +14,8 @@ if($param == "insertionbdd") {
    $colname->execute();
    $colnom = $colname->fetchAll();
 
-
-   
-
-   $posts = "";
-   $colonnevalue = "";
-
-   $Res1 = ""; 
-   $Res2 = ""; 
-   $Res3 = ""; 
-   $cible = ""; 
-   $value = ""; 
-   $egal1 = ""; 
-   $egal2 = ""; 
-   $cibles = [];
-   $tabl = "";  
-   $table = [];
-   $values = ""; 
-   $egaux1 = ""; 
-   $egaux2 = "";
+   $posts = ""; $colonnevalue = ""; $Res1 = ""; $Res2 = ""; $Res3 = ""; $cible = ""; $egal1 = ""; $egal2 = ""; 
+   $tabl = []; $egaux1 = ""; $egaux2 = "";
 
    for ($i = 1; $i < count($colnom); $i++) {
       $Res1 .=  $colnom[$i]["COLUMN_NAME"] . ',';
@@ -48,52 +31,11 @@ if($param == "insertionbdd") {
    
    $colonnevalue = explode('akonndro', $posts);
    $egaux1 = explode(',', $egal1);
-   
-   
-      foreach($egaux1 as $key => $val){
-            $i=0;
-            $table = array_merge([$key=>$val], [$tabl[$i] => $colonnevalue[$i]]);
-            $i++;
 
-            
-            
-
-      }
-
-   // $cibles = explode(',', substr($result, 0, -1));
-  
-   
-   print_r($table);
-  
-   
-   //  $insert1 = $base->prepare("INSERT INTO inventaire_karlit.ecran ($cible) VALUES ($egal2)");
-   // $insert1->execute(
-   //    $table
-   //  );
-
+   $tabl = array_combine($egaux1, $colonnevalue);
  
-
-
-   // $insert1 = $base->prepare("INSERT INTO inventaire_karlit.$table ($cibles[0]) VALUES ($egaux2[0])");
-      // $insert1->execute(array(
-      //    $egaux1[0] => $colonnevalue[0]
-      // ));
-     
-   // $idrecup = [];
-   // $recupid = $base->prepare("SELECT MAX(id) FROM $table");
-   // $recupid->execute();
-   // $idrecup = $recupid->fetch();
-
-   
-   // for ($i = 0; $i < count($colnom)-1; $i++) {
-   // $insert2 = $base->prepare("UPDATE $table SET $cibles[$i] = $egaux2[$i] WHERE $table.id = :id");
-   // $insert2->execute(array(
-   //      "id"=>strval($idrecup[0]),
-   //      $egaux1[$i]=>strval($colonnevalue[$i])
-
-   //    ));
-   // }
-  
+   $insert1 = $base->prepare("INSERT INTO inventaire_karlit.ecran ($cible) VALUES ($egal2)");
+   $insert1->execute($tabl);
 }
 
 

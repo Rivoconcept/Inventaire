@@ -120,7 +120,7 @@ $(function(){
                                 
                             
                             
-                            alert(i);
+                            console.log(i);
                             },
                         });
             } else {
@@ -128,7 +128,7 @@ $(function(){
             }
         
         
-         
+        //  alert(values);
          
      })
     
